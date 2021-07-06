@@ -253,6 +253,7 @@ objects:
   spec:
     accessModes:
       - ReadWriteOnce
+    storageClassName: ${STORAGE_CLASS}
     resources:
       requests:
         storage: ${GOGS_VOLUME_CAPACITY}
@@ -265,6 +266,7 @@ objects:
   spec:
     accessModes:
       - ReadWriteOnce
+    storageClassName: ${STORAGE_CLASS}
     resources:
       requests:
         storage: ${DB_VOLUME_CAPACITY}
@@ -354,3 +356,7 @@ parameters:
   displayName: Skip TLS verification on webhooks
   description: Skip TLS verification on webhooks. Enable with caution!
   value: "false"
+- name: STORAGE_CLASS
+  displayName: Define storage class used
+  description: customize storage class used
+  value: ocs-external-storagecluster-ceph-rbd
